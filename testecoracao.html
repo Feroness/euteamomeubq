@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coracao Pulsante</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DynaPuff&display=swap" rel="stylesheet">
+    <style>
+        body {
+  background: url('https://st3.depositphotos.com/7687670/17879/i/600/depositphotos_178799610-stock-photo-watercolor-ultra-violet-floral-wreath.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      @keyframes move {
+        0% {
+          transform: translate(0, 0);
+        }
+        25% {
+          transform: translate(-5px, -10px);
+        }
+        50% {
+          transform: translate(0, -20px);
+        }
+        75% {
+          transform: translate(5px, -10px);
+        }
+        100% {
+          transform: translate(0, 0);
+        }
+      }
+      #heart {
+        color: red;
+        font-size: 8vw;
+        margin: 0 auto;
+        display: block;
+        animation: pulse 2s infinite;
+      }
+      #text {
+        font-size: 4vw;
+        margin: 20px auto 0;
+        display: block;
+        text-align: center;
+        animation: move 5s infinite;
+        animation-delay: 1s;
+        font-family: 'DynaPuff', cursive;
+      }
+      .color1, .color2, .color3, .color4 {
+        transition: color 0.5s ease;
+      }
+      .color1 {
+        color: blue;
+      }
+      .color2 {
+        color: green;
+      }
+      .color3 {
+        color: purple;
+      }
+      .color4 {
+        color: orange;
+      }
+      @media screen and (max-width: 600px) {
+        #heart {
+          font-size: 15vw;
+        }
+        #text {
+          font-size: 8vw;
+        }
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="heart">&#10084;</div>
+    <div id="text" class="color1">Eu te amo meu biquinho!</div>
+    <script>
+      // Seleciona o elemento do texto
+      const textEl = document.getElementById("text");
+
+      // Define as cores
+      const colors = ["color1", "color2", "color3", "color4"];
+
+      // Define o índice da cor atual
+      let currentColorIndex = 0;
+
+      // Alterna a cor do texto a cada 2 segundos
+      setInterval(() => {
+        // Remove a cor anterior
+        textEl.classList.remove(colors[currentColorIndex]);
+
+        // Incrementa o índice da cor atual
+        currentColorIndex = (currentColorIndex + 1) % colors.length;
+
+        // Adiciona a nova cor
+        textEl.classList.add(colors[currentColorIndex]);
+      }, 2000);
+    </script>
+  </body>
+</html>
